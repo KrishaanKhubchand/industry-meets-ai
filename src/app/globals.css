@@ -27,6 +27,7 @@ body {
   color: var(--text);
   font-family: var(--font-instrument-sans), -apple-system, sans-serif;
   line-height: 1.6;
+  zoom: 0.9;
 }
 
 @keyframes pulse {

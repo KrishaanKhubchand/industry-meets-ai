@@ -55,7 +55,7 @@ export default function Home() {
         Industry Meets AI
       </h1>
       <p className="text-lg text-text-muted max-w-[520px] mb-8">
-        The fastest way for leaders to discover the AI tools reshaping their industry. 6 companies. 60 minutes. One evening.
+        The fastest way for leaders to discover the AI tools reshaping their industry.
       </p>
 
       {/* CTA Buttons */}
