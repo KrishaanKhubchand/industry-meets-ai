@@ -4,14 +4,6 @@ import { useState } from "react";
 
 export default function CFOsDemoDay() {
   const [debugOpen, setDebugOpen] = useState(false);
-  const [sponsorModalOpen, setSponsorModalOpen] = useState(false);
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    company: "",
-    message: "",
-  });
-  const [formSubmitted, setFormSubmitted] = useState(false);
 
   const demos = [
     {
@@ -57,24 +49,39 @@ export default function CFOsDemoDay() {
   ];
 
   const valueProps = [
-    { title: "Invite-Only", desc: "150 carefully selected finance leaders, no vendors in the audience." },
+    { title: "Invite-Only", desc: "150 carefully selected finance leaders." },
     { title: "6 Live Demos", desc: "10 minutes each, no slides, just working product." },
     { title: "Real Peer Networking", desc: "90 minutes with CFOs navigating the same transformation." },
     { title: "Completely Free", desc: "No cost, no strings attached." },
   ];
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    console.log("Sponsor form submitted:", formData);
-    setFormSubmitted(true);
-  };
-
   const spotsTotal = 150;
-  const spotsRemaining = 73;
+  const spotsTaken = 22;
 
   return (
-    <div className="max-w-[720px] mx-auto px-5 py-12 md:px-6 md:py-20">
-      {/* Badge */}
+    <>
+      {/* Header */}
+      <header className="fixed top-0 left-0 right-0 z-40 bg-bg/90 backdrop-blur-sm border-b border-border">
+        <div className="max-w-[720px] mx-auto px-5 md:px-6 py-4 flex items-center justify-between">
+          <a href="/" className="font-[family-name:var(--font-newsreader)] text-lg font-medium hover:text-accent transition-colors duration-200">
+            Industry Meets AI
+          </a>
+          <nav className="flex items-center gap-5">
+            <a href="/" className="text-[14px] text-text-muted hover:text-text transition-colors duration-200">
+              All Events
+            </a>
+            <a 
+              href="/" 
+              className="text-[14px] font-medium text-white bg-text px-3.5 py-1.5 rounded-lg hover:bg-[#1a1a1a] transition-colors duration-200"
+            >
+              Register
+            </a>
+          </nav>
+        </div>
+      </header>
+
+      <div className="max-w-[720px] mx-auto px-5 pt-24 pb-12 md:px-6 md:pt-28 md:pb-20">
+        {/* Badge */}
       <div className="inline-flex items-center gap-1.5 bg-accent-soft text-accent text-[13px] font-medium px-3 py-1.5 rounded-full mb-6">
         <span className="w-1.5 h-1.5 bg-accent rounded-full animate-pulse-dot"></span>
         Invite Only
@@ -136,7 +143,10 @@ export default function CFOsDemoDay() {
           </svg>
         </button>
         <button
-          onClick={() => setSponsorModalOpen(true)}
+          data-tally-open="ODXYV7"
+          data-tally-layout="modal"
+          data-tally-width="500"
+          data-tally-emoji-animation="none"
           className="inline-flex items-center justify-center gap-2 px-5 py-3 rounded-lg text-[15px] font-medium bg-transparent text-text border border-border hover:bg-card-bg hover:border-text-muted transition-all duration-200 md:justify-start"
         >
           Sponsorship Opportunities
@@ -146,13 +156,13 @@ export default function CFOsDemoDay() {
       {/* Spots Indicator */}
       <div className="mt-4 mb-10">
         <div className="flex items-center justify-between text-[13px] mb-2">
-          <span className="text-text-muted">{spotsRemaining} of {spotsTotal} spots remaining</span>
-          <span className="text-accent font-medium">{Math.round((spotsRemaining / spotsTotal) * 100)}% available</span>
+          <span className="text-text-muted">{spotsTaken} out of {spotsTotal} spots already reserved</span>
+          <span className="text-accent font-medium">{Math.round((spotsTaken / spotsTotal) * 100)}% filled</span>
         </div>
         <div className="h-1.5 bg-border rounded-full overflow-hidden">
           <div 
             className="h-full bg-accent rounded-full transition-all duration-500"
-            style={{ width: `${((spotsTotal - spotsRemaining) / spotsTotal) * 100}%` }}
+            style={{ width: `${(spotsTaken / spotsTotal) * 100}%` }}
           ></div>
         </div>
       </div>
@@ -264,7 +274,7 @@ export default function CFOsDemoDay() {
           Request Your Invite
         </h2>
         <p className="text-text-muted mb-2 max-w-[400px] mx-auto">
-          Limited to {spotsTotal} finance leaders. Only {spotsRemaining} spots remaining.
+          Limited to {spotsTotal} finance leaders. {spotsTaken} spots already reserved.
         </p>
         <p className="text-[13px] text-text-muted mb-6">
           Applications reviewed within 48 hours.
@@ -305,7 +315,10 @@ export default function CFOsDemoDay() {
               Get 10 minutes in front of 150 CFOs actively looking for AI tools. Show—don&apos;t tell—what your product can do.
             </p>
             <button
-              onClick={() => setSponsorModalOpen(true)}
+              data-tally-open="ODXYV7"
+              data-tally-layout="modal"
+              data-tally-width="500"
+              data-tally-emoji-animation="none"
               className="inline-flex items-center gap-2 text-[15px] font-medium text-[#6B5B4F] hover:text-[#4A3F37] transition-colors"
             >
               Learn About Demo Slots
@@ -339,176 +352,44 @@ export default function CFOsDemoDay() {
         </div>
       </footer>
 
-      {/* Sponsorship Modal */}
-      {sponsorModalOpen && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
-          {/* Backdrop */}
-          <div
-            className="absolute inset-0 bg-text/40 backdrop-blur-sm"
-            onClick={() => {
-              setSponsorModalOpen(false);
-              setFormSubmitted(false);
-            }}
-          ></div>
-          
-          {/* Modal */}
-          <div className="relative bg-bg border border-border rounded-2xl shadow-2xl w-full max-w-[480px] p-6 md:p-8 animate-in fade-in zoom-in-95 duration-200">
-            <button
-              onClick={() => {
-                setSponsorModalOpen(false);
-                setFormSubmitted(false);
-              }}
-              className="absolute top-4 right-4 text-text-muted hover:text-text transition-colors duration-200"
-            >
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                <line x1="18" y1="6" x2="6" y2="18" />
-                <line x1="6" y1="6" x2="18" y2="18" />
-              </svg>
-            </button>
-
-            {!formSubmitted ? (
-              <>
-                <div className="inline-flex items-center gap-1.5 bg-accent-soft text-accent text-[12px] font-medium px-2.5 py-1 rounded-full mb-4">
-                  Limited Spots
-                </div>
-                <h2 className="font-[family-name:var(--font-newsreader)] text-2xl md:text-3xl font-medium tracking-tight leading-[1.2] mb-3">
-                  Showcase Your AI Solution
-                </h2>
-                <p className="text-text-muted text-[15px] mb-6">
-                  Get 10 minutes in front of 150 CFOs actively seeking AI tools. Our audience is senior finance leaders ready to buy.
-                </p>
-
-                <form onSubmit={handleSubmit} className="flex flex-col gap-4">
-                  <div>
-                    <label className="block text-[13px] font-medium mb-1.5">Name</label>
-                    <input
-                      type="text"
-                      required
-                      value={formData.name}
-                      onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                      className="w-full px-4 py-2.5 bg-card-bg border border-border rounded-lg text-[15px] focus:outline-none focus:border-text-muted transition-colors duration-200"
-                      placeholder="Jane Smith"
-                    />
-                  </div>
-                  <div>
-                    <label className="block text-[13px] font-medium mb-1.5">Work Email</label>
-                    <input
-                      type="email"
-                      required
-                      value={formData.email}
-                      onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                      className="w-full px-4 py-2.5 bg-card-bg border border-border rounded-lg text-[15px] focus:outline-none focus:border-text-muted transition-colors duration-200"
-                      placeholder="jane@company.com"
-                    />
-                  </div>
-                  <div>
-                    <label className="block text-[13px] font-medium mb-1.5">Company</label>
-                    <input
-                      type="text"
-                      required
-                      value={formData.company}
-                      onChange={(e) => setFormData({ ...formData, company: e.target.value })}
-                      className="w-full px-4 py-2.5 bg-card-bg border border-border rounded-lg text-[15px] focus:outline-none focus:border-text-muted transition-colors duration-200"
-                      placeholder="Your AI Company"
-                    />
-                  </div>
-                  <div>
-                    <label className="block text-[13px] font-medium mb-1.5">
-                      What does your product do? <span className="text-text-muted font-normal">(optional)</span>
-                    </label>
-                    <textarea
-                      value={formData.message}
-                      onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                      rows={3}
-                      className="w-full px-4 py-2.5 bg-card-bg border border-border rounded-lg text-[15px] focus:outline-none focus:border-text-muted transition-colors duration-200 resize-none"
-                      placeholder="Brief description of your AI solution for finance teams..."
-                    />
-                  </div>
-                  <button
-                    type="submit"
-                    className="w-full mt-2 inline-flex items-center justify-center gap-2 px-5 py-3 rounded-lg text-[15px] font-medium bg-text text-white hover:bg-[#1a1a1a] hover:-translate-y-0.5 transition-all duration-200"
-                  >
-                    Request Sponsorship Info
-                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-                      <path
-                        d="M3 8h10M9 4l4 4-4 4"
-                        stroke="currentColor"
-                        strokeWidth="1.5"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                      />
-                    </svg>
-                  </button>
-                </form>
-
-                <p className="text-[12px] text-text-muted text-center mt-4">
-                  We&apos;ll respond within 24 hours with sponsorship details.
-                </p>
-              </>
-            ) : (
-              <div className="text-center py-8">
-                <div className="w-16 h-16 bg-[#E8F5E9] rounded-full flex items-center justify-center mx-auto mb-4">
-                  <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#2E7D32" strokeWidth="2">
-                    <polyline points="20 6 9 17 4 12" />
-                  </svg>
-                </div>
-                <h3 className="font-[family-name:var(--font-newsreader)] text-2xl font-medium mb-2">
-                  Request Received
-                </h3>
-                <p className="text-text-muted text-[15px] mb-6">
-                  We&apos;ll be in touch within 24 hours with sponsorship opportunities for AI for CFOs Demo Day.
-                </p>
-                <button
-                  onClick={() => {
-                    setSponsorModalOpen(false);
-                    setFormSubmitted(false);
-                    setFormData({ name: "", email: "", company: "", message: "" });
-                  }}
-                  className="text-[14px] font-medium text-text hover:text-accent transition-colors duration-200"
+      {/* Debug Panel - only visible in development */}
+      {process.env.NODE_ENV === 'development' && (
+        <div className="fixed bottom-4 right-4 z-50">
+          <button
+            onClick={() => setDebugOpen(!debugOpen)}
+            className="w-10 h-10 bg-text text-white rounded-full shadow-lg flex items-center justify-center hover:bg-[#1a1a1a] transition-all duration-200 text-sm font-mono"
+            title="Debug Panel"
+          >
+            {debugOpen ? "×" : "⚙"}
+          </button>
+          {debugOpen && (
+            <div className="absolute bottom-12 right-0 w-64 bg-card-bg border border-border rounded-xl shadow-xl p-4">
+              <p className="text-xs font-semibold uppercase tracking-[0.08em] text-text-muted mb-3">
+                Debug Panel
+              </p>
+              <div className="flex flex-col gap-2">
+                <a
+                  href="/"
+                  className="text-[13px] px-3 py-2 bg-bg rounded-lg hover:bg-border transition-colors duration-200"
                 >
-                  Close
-                </button>
-              </div>
-            )}
-          </div>
-        </div>
-      )}
-
-      {/* Debug Panel */}
-      <div className="fixed bottom-4 right-4 z-50">
-        <button
-          onClick={() => setDebugOpen(!debugOpen)}
-          className="w-10 h-10 bg-text text-white rounded-full shadow-lg flex items-center justify-center hover:bg-[#1a1a1a] transition-all duration-200 text-sm font-mono"
-          title="Debug Panel"
-        >
-          {debugOpen ? "×" : "⚙"}
-        </button>
-        {debugOpen && (
-          <div className="absolute bottom-12 right-0 w-64 bg-card-bg border border-border rounded-xl shadow-xl p-4">
-            <p className="text-xs font-semibold uppercase tracking-[0.08em] text-text-muted mb-3">
-              Debug Panel
-            </p>
-            <div className="flex flex-col gap-2">
-              <a
-                href="/"
-                className="text-[13px] px-3 py-2 bg-bg rounded-lg hover:bg-border transition-colors duration-200"
-              >
-                → Home Page
-              </a>
-              <a
-                href="/events/cfos-meet-ai-demo-day-2026"
-                className="text-[13px] px-3 py-2 bg-accent-soft text-accent rounded-lg"
-              >
-                → AI for CFOs Demo Day (current)
-              </a>
-              <div className="h-px bg-border my-2"></div>
-              <div className="text-[11px] text-text-muted font-mono">
-                Route: /events/cfos-meet-ai-demo-day-2026
+                  → Home Page
+                </a>
+                <a
+                  href="/events/cfos-meet-ai-demo-day-2026"
+                  className="text-[13px] px-3 py-2 bg-accent-soft text-accent rounded-lg"
+                >
+                  → AI for CFOs Demo Day (current)
+                </a>
+                <div className="h-px bg-border my-2"></div>
+                <div className="text-[11px] text-text-muted font-mono">
+                  Route: /events/cfos-meet-ai-demo-day-2026
+                </div>
               </div>
             </div>
-          </div>
-        )}
+          )}
+        </div>
+      )}
       </div>
-    </div>
+    </>
   );
 }
