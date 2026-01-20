@@ -433,6 +433,18 @@ export default function Podcast() {
                     → GC Demo Day 2026
                   </a>
                   <a
+                    href="/events/real-estate-meets-ai-demo-day-2026"
+                    className="text-[13px] px-3 py-2 bg-bg rounded-lg hover:bg-border transition-colors duration-200"
+                  >
+                    → Real Estate Demo Day 2026
+                  </a>
+                  <a
+                    href="/events/real-estate-meets-ai-summit-2026"
+                    className="text-[13px] px-3 py-2 bg-bg rounded-lg hover:bg-border transition-colors duration-200"
+                  >
+                    → Real Estate Summit 2026
+                  </a>
+                  <a
                     href="/community/cfo-technology-council"
                     className="text-[13px] px-3 py-2 bg-bg rounded-lg hover:bg-border transition-colors duration-200"
                   >
