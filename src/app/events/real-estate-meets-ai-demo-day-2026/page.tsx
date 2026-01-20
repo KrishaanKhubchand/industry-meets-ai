@@ -2,38 +2,38 @@
 
 import { useState } from "react";
 
-export default function CFOsDemoDay() {
+export default function RealEstateDemoDay() {
   const [debugOpen, setDebugOpen] = useState(false);
 
   const demos = [
     {
-      title: "Forecasting Reimagined",
-      description: "Build 12-month plans in hours, not weeks",
+      title: "Instant Property Valuation",
+      description: "Get accurate comps and valuations in seconds, not hours",
       slot: "10 min demo",
     },
     {
-      title: "Real-Time Decision Intelligence",
-      description: "See your cash runway update as deals close",
+      title: "AI-Powered Tenant Screening",
+      description: "Reduce bad debt by 70% with predictive risk scoring",
       slot: "10 min demo",
     },
     {
-      title: "Scenario Planning at Scale",
-      description: "Model 100 what-ifs before your next board meeting",
+      title: "Lease Management Automation",
+      description: "Extract and track every clause across 1,000+ leases",
       slot: "10 min demo",
     },
     {
-      title: "FP&A Without the Spreadsheet Hell",
-      description: "Consolidate actuals across 50 entities in minutes",
+      title: "Market Intelligence at Scale",
+      description: "Spot emerging neighborhoods before your competitors",
       slot: "10 min demo",
     },
     {
-      title: "The 5-Day Close",
-      description: "AI that catches errors before your auditors do",
+      title: "Deal Underwriting in Minutes",
+      description: "Model 50 scenarios before your next acquisition",
       slot: "10 min demo",
     },
     {
-      title: "Hands-Free AP",
-      description: "Process 10,000 invoices/month without adding headcount",
+      title: "Portfolio Optimization",
+      description: "AI that tells you when to hold, sell, or refinance",
       slot: "10 min demo",
     },
   ];
@@ -49,14 +49,14 @@ export default function CFOsDemoDay() {
   ];
 
   const valueProps = [
-    { title: "Invite-Only", desc: "150 carefully selected finance leaders." },
+    { title: "Invite-Only", desc: "150 carefully selected real estate leaders." },
     { title: "6 Live Demos", desc: "10 minutes each, no slides, just working product." },
-    { title: "Real Peer Networking", desc: "90 minutes with CFOs navigating the same transformation." },
+    { title: "Real Peer Networking", desc: "90 minutes with professionals navigating the same transformation." },
     { title: "Completely Free", desc: "No cost, no strings attached." },
   ];
 
   const spotsTotal = 150;
-  const spotsTaken = 22;
+  const spotsTaken = 18;
 
   return (
     <>
@@ -89,10 +89,10 @@ export default function CFOsDemoDay() {
 
       {/* Hero */}
       <h1 className="font-[family-name:var(--font-newsreader)] text-4xl md:text-5xl font-medium tracking-tight leading-[1.15] mb-5">
-        AI for CFOs Demo Day 2026
+        Real Estate Meets AI Demo Day 2026
       </h1>
       <p className="font-[family-name:var(--font-newsreader)] text-xl md:text-2xl text-text-muted tracking-tight leading-[1.3] mb-6">
-        Join 150 CFOs for an evening of live AI demos and peer conversations about the future of finance.
+        Join 150 real estate leaders for an evening of live AI demos and peer conversations about the future of property.
       </p>
 
       {/* Event Meta */}
@@ -104,7 +104,7 @@ export default function CFOsDemoDay() {
             <line x1="8" y1="2" x2="8" y2="6"/>
             <line x1="3" y1="10" x2="21" y2="10"/>
           </svg>
-          <span>Thursday, April 17, 2026</span>
+          <span>Thursday, May 15, 2026</span>
         </div>
         <div className="flex items-center gap-2">
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="text-accent">
@@ -176,10 +176,10 @@ export default function CFOsDemoDay() {
       </p>
       <div className="mb-6">
         <p className="text-base leading-[1.7] mb-4">
-          <strong className="font-semibold">AI for CFOs Demo Day</strong> brings together the most innovative AI solutions built specifically for finance leaders. In one evening, see six carefully selected tools that are already reshaping how CFOs work.
+          <strong className="font-semibold">Real Estate Meets AI Demo Day</strong> brings together the most innovative AI solutions built specifically for property professionals. In one evening, see six carefully selected tools that are already reshaping how real estate leaders work.
         </p>
         <p className="text-base leading-[1.7] mb-6">
-          The role of the CFO is evolving faster than ever. From forecasting and compliance to strategic decision-making, AI is transforming how finance leaders operate.
+          From property valuation and tenant screening to market analysis and portfolio management, AI is transforming every aspect of real estate. See the tools that are giving early adopters an unfair advantage.
         </p>
       </div>
 
@@ -204,7 +204,7 @@ export default function CFOsDemoDay() {
         What You&apos;ll See
       </p>
       <p className="text-[14px] text-text-muted mb-5">
-        Six hand-selected AI solutions solving real finance challenges
+        Six hand-selected AI solutions solving real property challenges
       </p>
       <div className="grid gap-3 mb-6">
         {demos.map((demo, index) => (
@@ -258,7 +258,7 @@ export default function CFOsDemoDay() {
         Who Should Attend
       </p>
       <div className="flex flex-wrap gap-2 mb-6">
-        {["CFOs", "VPs of Finance", "Controllers", "FP&A Leaders", "Finance Directors", "Heads of Accounting"].map((role, index) => (
+        {["Real Estate Investors", "Property Managers", "Commercial RE Leaders", "Brokers & Agents", "PropTech Leaders", "Heads of Acquisitions"].map((role, index) => (
           <span
             key={index}
             className="px-3.5 py-2 bg-card-bg border border-border rounded-full text-sm text-text"
@@ -274,7 +274,7 @@ export default function CFOsDemoDay() {
           Request Your Invite
         </h2>
         <p className="text-text-muted mb-2 max-w-[400px] mx-auto">
-          Limited to {spotsTotal} finance leaders. {spotsTaken} spots already reserved.
+          Limited to {spotsTotal} real estate leaders. {spotsTaken} spots already reserved.
         </p>
         <p className="text-[13px] text-text-muted mb-6">
           Applications reviewed within 48 hours.
@@ -297,43 +297,6 @@ export default function CFOsDemoDay() {
             />
           </svg>
         </button>
-      </div>
-
-      {/* Sponsor CTA Box */}
-      <div className="bg-[#F5F0E8] border border-[#E0D5C7] rounded-xl p-6 mt-8">
-        <div className="flex items-start gap-4">
-          <div className="w-10 h-10 rounded-full bg-[#6B5B4F] flex items-center justify-center flex-shrink-0">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="1.5">
-              <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
-            </svg>
-          </div>
-          <div className="flex-1">
-            <h3 className="font-[family-name:var(--font-newsreader)] text-xl font-medium mb-2">
-              Want to Demo Your Solution?
-            </h3>
-            <p className="text-[15px] text-text-muted mb-4">
-              Get 10 minutes in front of 150 CFOs actively looking for AI tools. Show—don&apos;t tell—what your product can do.
-            </p>
-            <button
-              data-tally-open="ODXYV7"
-              data-tally-layout="modal"
-              data-tally-width="500"
-              data-tally-emoji-animation="none"
-              className="inline-flex items-center gap-2 text-[15px] font-medium text-[#6B5B4F] hover:text-[#4A3F37] transition-colors"
-            >
-              Learn About Demo Slots
-              <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-                <path
-                  d="M3 8h10M9 4l4 4-4 4"
-                  stroke="currentColor"
-                  strokeWidth="1.5"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                />
-              </svg>
-            </button>
-          </div>
-        </div>
       </div>
 
       {/* Footer */}
@@ -382,9 +345,9 @@ export default function CFOsDemoDay() {
                 </a>
                 <a
                   href="/events/cfos-meet-ai-demo-day-2026"
-                  className="text-[13px] px-3 py-2 bg-accent-soft text-accent rounded-lg"
+                  className="text-[13px] px-3 py-2 bg-bg rounded-lg hover:bg-border transition-colors duration-200"
                 >
-                  → CFO Demo Day 2026 (current)
+                  → CFO Demo Day 2026
                 </a>
                 <a
                   href="/events/sales-meets-ai-demo-day-2026"
@@ -400,9 +363,9 @@ export default function CFOsDemoDay() {
                 </a>
                 <a
                   href="/events/real-estate-meets-ai-demo-day-2026"
-                  className="text-[13px] px-3 py-2 bg-bg rounded-lg hover:bg-border transition-colors duration-200"
+                  className="text-[13px] px-3 py-2 bg-accent-soft text-accent rounded-lg"
                 >
-                  → Real Estate Demo Day 2026
+                  → Real Estate Demo Day 2026 (current)
                 </a>
                 <a
                   href="/community/cfo-technology-council"
@@ -418,7 +381,7 @@ export default function CFOsDemoDay() {
                 </a>
                 <div className="h-px bg-border my-2"></div>
                 <div className="text-[11px] text-text-muted font-mono">
-                  Route: /events/cfos-meet-ai-demo-day-2026
+                  Route: /events/real-estate-meets-ai-demo-day-2026
                 </div>
               </div>
             </div>

@@ -8,21 +8,24 @@ export default function Home() {
   const events = [
     {
       month: "Feb",
-      day: "12",
-      title: "AI in Healthcare Operations",
-      meta: "Virtual · 12:00 PM EST · 90 min",
+      day: "20",
+      title: "CFOs Meet AI Demo Day 2026",
+      meta: "London · 5:30 PM GMT · In Person",
+      href: "/events/cfos-meet-ai-demo-day-2026",
     },
     {
       month: "Mar",
-      day: "06",
-      title: "AI for Legal & Compliance Teams",
-      meta: "Virtual · 12:00 PM EST · 90 min",
+      day: "13",
+      title: "Sales Meets AI Demo Day 2026",
+      meta: "London · 5:30 PM GMT · In Person",
+      href: "/events/sales-meets-ai-demo-day-2026",
     },
     {
-      month: "Mar",
-      day: "27",
-      title: "AI in Financial Services",
-      meta: "Virtual · 12:00 PM EST · 90 min",
+      month: "Apr",
+      day: "10",
+      title: "AI for General Counsel Demo Day 2026",
+      meta: "London · 5:30 PM GMT · In Person",
+      href: "/events/ai-for-general-counsel-demo-day-2026",
     },
   ];
 
@@ -160,8 +163,9 @@ export default function Home() {
       </p>
       <div className="flex flex-col gap-3">
         {events.map((event, index) => (
-          <div
+          <a
             key={index}
+            href={event.href}
             className="flex items-center gap-4 px-5 py-4 bg-card-bg border border-border rounded-xl transition-all duration-200 hover:border-text-muted hover:translate-x-1 cursor-pointer group"
           >
             <div className="flex flex-col items-center min-w-[48px] px-3 py-2 bg-bg rounded-lg">
@@ -177,7 +181,7 @@ export default function Home() {
             <span className="text-text-muted transition-transform duration-200 group-hover:translate-x-1">
               →
             </span>
-          </div>
+          </a>
         ))}
       </div>
 
@@ -190,12 +194,22 @@ export default function Home() {
       </p>
       <div className="flex flex-wrap gap-2">
         {industries.map((industry, index) => (
-          <span
-            key={index}
-            className="px-3.5 py-2 bg-card-bg border border-border rounded-full text-sm text-text transition-all duration-200 hover:bg-bg hover:border-text-muted cursor-pointer"
-          >
-            {industry}
-          </span>
+          industry === "Real Estate" ? (
+            <a
+              key={index}
+              href="/events/real-estate-meets-ai-demo-day-2026"
+              className="px-3.5 py-2 bg-card-bg border border-border rounded-full text-sm text-text transition-all duration-200 hover:bg-bg hover:border-text-muted cursor-pointer"
+            >
+              {industry}
+            </a>
+          ) : (
+            <span
+              key={index}
+              className="px-3.5 py-2 bg-card-bg border border-border rounded-full text-sm text-text transition-all duration-200 hover:bg-bg hover:border-text-muted cursor-pointer"
+            >
+              {industry}
+            </span>
+          )
         ))}
       </div>
 
@@ -238,10 +252,46 @@ export default function Home() {
                   → Home Page (current)
                 </a>
                 <a
+                  href="/podcast"
+                  className="text-[13px] px-3 py-2 bg-bg rounded-lg hover:bg-border transition-colors duration-200"
+                >
+                  → Podcast
+                </a>
+                <a
                   href="/events/cfos-meet-ai-demo-day-2026"
                   className="text-[13px] px-3 py-2 bg-bg rounded-lg hover:bg-border transition-colors duration-200"
                 >
                   → CFO Demo Day 2026
+                </a>
+                <a
+                  href="/events/sales-meets-ai-demo-day-2026"
+                  className="text-[13px] px-3 py-2 bg-bg rounded-lg hover:bg-border transition-colors duration-200"
+                >
+                  → Sales Demo Day 2026
+                </a>
+                <a
+                  href="/events/ai-for-general-counsel-demo-day-2026"
+                  className="text-[13px] px-3 py-2 bg-bg rounded-lg hover:bg-border transition-colors duration-200"
+                >
+                  → GC Demo Day 2026
+                </a>
+                <a
+                  href="/events/real-estate-meets-ai-demo-day-2026"
+                  className="text-[13px] px-3 py-2 bg-bg rounded-lg hover:bg-border transition-colors duration-200"
+                >
+                  → Real Estate Demo Day 2026
+                </a>
+                <a
+                  href="/community/cfo-technology-council"
+                  className="text-[13px] px-3 py-2 bg-bg rounded-lg hover:bg-border transition-colors duration-200"
+                >
+                  → CFO Technology Council
+                </a>
+                <a
+                  href="/community/claude-coworking-cafe"
+                  className="text-[13px] px-3 py-2 bg-bg rounded-lg hover:bg-border transition-colors duration-200"
+                >
+                  → Claude Co-Working Cafe
                 </a>
                 <div className="h-px bg-border my-2"></div>
                 <div className="text-[11px] text-text-muted font-mono">
